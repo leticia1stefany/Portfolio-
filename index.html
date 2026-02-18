@@ -3,144 +3,211 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Stefany Santos | Dev Fullstack</title>
+    <title>Stefany Santos | Dev Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #000000;
             color: #ffffff;
+            margin: 0;
             overflow-x: hidden;
         }
 
-        #canvas-container {
+        /* Canvas de fundo que ocupa a tela toda */
+        #bg-canvas {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             z-index: -1;
+            background: radial-gradient(circle at center, #110022 0%, #000000 100%);
         }
 
-        .glass-card {
+        .glass {
             background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
         }
 
-        .java-glow {
-            border: 2px solid #8B5CF6;
-            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
-            animation: pulse-glow 2s infinite alternate;
+        .text-glow {
+            text-shadow: 0 0 15px rgba(139, 92, 246, 0.5);
         }
 
-        @keyframes pulse-glow {
-            from { box-shadow: 0 0 10px rgba(139, 92, 246, 0.4); }
-            to { box-shadow: 0 0 30px rgba(139, 92, 246, 0.8); }
-        }
-
-        .text-gradient {
-            background: linear-gradient(to right, #ffffff, #8B5CF6);
+        .purple-gradient-text {
+            background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .profile-img {
-            border: 4px solid rgba(139, 92, 246, 0.3);
-            box-shadow: 0 0 40px rgba(139, 92, 246, 0.2);
+        .java-card-glow {
+            border: 1px solid #8B5CF6;
+            box-shadow: 0 0 30px rgba(139, 92, 246, 0.2);
+            transition: 0.5s;
+        }
+        
+        .java-card-glow:hover {
+            box-shadow: 0 0 50px rgba(139, 92, 246, 0.5);
         }
 
-        .fade-in {
-            animation: fadeIn 1.5s ease-out;
+        /* Animação suave de flutuação */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .float-animation { animation: float 4s ease-in-out infinite; }
     </style>
 </head>
 <body>
 
-    <div id="canvas-container"></div>
+    <canvas id="bg-canvas"></canvas>
 
-    <header class="fixed top-0 w-full z-50 glass-card border-none py-4 px-8 flex justify-between items-center">
-        <div class="text-2xl font-black tracking-tighter text-gradient">DEV.STEFANY</div>
-        <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
-            <a href="#hero" class="hover:text-purple-500 transition">Início</a>
-            <a href="#about" class="hover:text-purple-500 transition">Sobre</a>
-            <a href="#skills" class="hover:text-purple-500 transition">Habilidades</a>
-            <a href="#projects" class="hover:text-purple-500 transition">Projetos</a>
-            <a href="#contact" class="hover:text-purple-500 transition">Contato</a>
+    <header class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center transition-all">
+        <div class="text-xl font-black tracking-widest text-white">SS<span class="text-purple-500">.</span></div>
+        <nav class="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
+            <a href="#hero" class="hover:text-white transition">Início</a>
+            <a href="#about" class="hover:text-white transition">Sobre</a>
+            <a href="#projects" class="hover:text-white transition">Projetos</a>
         </nav>
     </header>
 
-    <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20">
-        <div class="fade-in">
-            <h1 class="text-6xl md:text-9xl font-black mb-2 tracking-tight">
-                STEFANY
-            </h1>
-            <h2 class="text-5xl md:text-8xl font-black mb-12 text-gradient tracking-tight">
-                SANTOS
-            </h2>
+    <section id="hero" class="min-h-screen flex flex-col justify-center items-center px-6 relative">
+        <div class="text-center mb-16">
+            <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-2">STEFANY</h1>
+            <h2 class="text-6xl md:text-8xl font-black tracking-tighter purple-gradient-text">SANTOS</h2>
         </div>
 
-        <div id="about" class="max-w-5xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center text-left mt-10 bg-black/40 p-8 rounded-3xl backdrop-blur-sm border border-white/5">
-            <div class="flex justify-center md:justify-end">
-                <img src="https://via.placeholder.com/300" alt="Stefany Santos" class="profile-img w-64 h-64 md:w-80 md:h-80 object-cover rounded-full grayscale hover:grayscale-0 transition-all duration-500">
+        <div id="about" class="max-w-4xl w-full glass rounded-[2rem] p-8 md:p-12 flex flex-col md:flex-row items-center gap-10">
+            <div class="relative shrink-0">
+                <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-40"></div>
+                <img src="https://via.placeholder.com/300" alt="Stefany Santos" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-2 border-white/10">
             </div>
-            <div class="space-y-6">
-                <h3 class="text-2xl font-bold text-purple-400">Olá! 👋</h3>
-                <p class="text-gray-300 text-lg leading-relaxed">
-                    Stefany S., com 17 anos estou em busca de oportunidades na área de tecnologia. Tenho uma forte paixão por aprender e me desenvolver. Estou aberta a novos desafios e pronta para aplicar meus conhecimentos em um ambiente colaborativo.
+            
+            <div class="text-left">
+                <span class="text-purple-400 font-bold tracking-widest uppercase text-sm italic">Desenvolvedora em Ascensão</span>
+                <p class="text-gray-300 text-lg mt-4 leading-relaxed font-light">
+                    Stefany S., com <span class="text-white font-bold">17 anos</span>, estou em busca de oportunidades na área de tecnologia. Tenho uma forte paixão por aprender e me desenvolver. Estou aberta a novos desafios e pronta para aplicar meus conhecimentos em um ambiente colaborativo.
                 </p>
-                <div class="flex gap-4">
-                    <a href="#projects" class="bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-xl font-bold transition-all transform hover:-translate-y-1">
-                        Ver Projetos
+                
+                <div class="flex gap-6 mt-8">
+                    <a href="https://linkedin.com/in/SEU_USER" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all transform hover:scale-110">
+                        <i class="fa-brands fa-linkedin"></i>
                     </a>
-                    <a href="#contact" class="border border-purple-500/50 hover:bg-purple-500/10 px-6 py-3 rounded-xl font-bold transition-all">
-                        Contato
+                    <a href="https://github.com/SEU_USER" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all transform hover:scale-110">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="mailto:seuemail@gmail.com" class="text-2xl text-gray-400 hover:text-white transition-all transform hover:scale-110">
+                        <i class="fa-solid fa-envelope"></i>
                     </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="py-32 px-8 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 text-center uppercase tracking-widest text-gray-500">Core Stack</h2>
+    <section class="py-32 px-6 max-w-6xl mx-auto">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="glass-card p-8 rounded-2xl text-center java-glow">
-                <div class="text-4xl mb-4">☕</div>
-                <h3 class="text-xl font-bold mb-2">JAVA</h3>
-                <p class="text-sm text-gray-400">Desenvolvimento Backend e Sistemas Escaláveis.</p>
+            <div class="glass p-8 rounded-3xl text-center java-card-glow float-animation">
+                <i class="fa-brands fa-java text-4xl text-purple-500 mb-4"></i>
+                <h3 class="font-bold text-xl">JAVA</h3>
+                <p class="text-gray-500 text-sm mt-2 font-medium">Core & Backend</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl text-center hover:border-purple-500/50 hover:bg-white/5">
-                <div class="text-4xl mb-4">🍃</div>
-                <h3 class="text-xl font-bold mb-2">Spring Boot</h3>
-                <p class="text-sm text-gray-400">Microserviços e APIs RESTful modernas.</p>
+            <div class="glass p-8 rounded-3xl text-center border-white/5">
+                <i class="fa-solid fa-leaf text-4xl text-green-500 mb-4"></i>
+                <h3 class="font-bold text-xl">Spring Boot</h3>
+                <p class="text-gray-500 text-sm mt-2">APIs Robustas</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl text-center hover:border-purple-500/50 hover:bg-white/5">
-                <div class="text-4xl mb-4">💾</div>
-                <h3 class="text-xl font-bold mb-2">SQL</h3>
-                <p class="text-sm text-gray-400">Modelagem e otimização de banco de dados.</p>
+            <div class="glass p-8 rounded-3xl text-center border-white/5">
+                <i class="fa-solid fa-database text-4xl text-blue-500 mb-4"></i>
+                <h3 class="font-bold text-xl">SQL</h3>
+                <p class="text-gray-500 text-sm mt-2">Estrutura de Dados</p>
             </div>
-            <div class="glass-card p-8 rounded-2xl text-center hover:border-purple-500/50 hover:bg-white/5">
-                <div class="text-4xl mb-4">🌿</div>
-                <h3 class="text-xl font-bold mb-2">Git</h3>
-                <p class="text-sm text-gray-400">Controle de versão e CI/CD.</p>
+            <div class="glass p-8 rounded-3xl text-center border-white/5">
+                <i class="fa-brands fa-git-alt text-4xl text-orange-500 mb-4"></i>
+                <h3 class="font-bold text-xl">Git</h3>
+                <p class="text-gray-500 text-sm mt-2">Versionamento</p>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="py-20 px-8 max-w-6xl mx-auto">
-        <h2 class="text-4xl font-black mb-12">Projectos em <span class="text-purple-500">Destaque</span></h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div class="group glass-card rounded-3xl overflow-hidden border-white/5">
-                <div class="h-64 bg-zinc-900 flex items-center justify-center relative overflow-hidden">
-                    <div class="absolute inset-0 bg-purple-600/20 group-hover:bg-purple-600/10 transition-colors"></div>
-                    <span class="text-zinc-700 font-bold text-xl group-hover:text-purple-500 transition">PREVIEW_IMG</span>
-                </div>
-                <div class="p-8">
-                    <h3 class="text-2xl font-bold
+    <footer class="py-10 text-center text-gray-600 text-xs tracking-widest uppercase border-t border-white/5">
+        &copy; 2024 Stefany Santos. Feito com paixão e código.
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+
+    <script>
+        /**
+         * FUNDO INTERATIVO DE ESTRELAS/PARTÍCULAS
+         */
+        const canvas = document.querySelector('#bg-canvas');
+        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.z = 2;
+
+        let mouseX = 0, mouseY = 0;
+        
+        // Criando as partículas
+        const particlesGeometry = new THREE.BufferGeometry();
+        const particlesCount = 3000;
+        const posArray = new Float32Array(particlesCount * 3);
+
+        for(let i=0; i < particlesCount * 3; i++) {
+            posArray[i] = (Math.random() - 0.5) * 6; // Espalha as partículas
+        }
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+        // Estilo das partículas
+        const particlesMaterial = new THREE.PointsMaterial({
+            size: 0.005,
+            color: '#8B5CF6',
+            transparent: true,
+            opacity: 0.8,
+            blending: THREE.AdditiveBlending
+        });
+
+        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particlesMesh);
+
+        // Resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Mouse Move
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            
+            // Rotação automática suave
+            particlesMesh.rotation.y += 0.001;
+            particlesMesh.rotation.x += 0.0005;
+
+            // Interação com o Mouse
+            if (mouseX > 0) {
+                const targetX = (mouseX - window.innerWidth / 2) * 0.0005;
+                const targetY = (mouseY - window.innerHeight / 2) * 0.0005;
+                particlesMesh.rotation.y += (targetX - particlesMesh.rotation.y) * 0.1;
+                particlesMesh.rotation.x += (targetY - particlesMesh.rotation.x) * 0.1;
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+        animate();
+    </script>
+</body>
+</html>
