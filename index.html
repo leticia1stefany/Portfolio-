@@ -1,163 +1,228 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio 3D | Java Developer</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <title>Portfolio Stefany s | Dev Fullstack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; overflow: hidden; background-color: #0a0a0a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-        canvas { display: block; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
 
-        /* Interface Estilo Agenda Overlay */
-        #ui-layer {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 80%;
-            max-width: 800px;
-            height: 500px;
-            background: rgba(20, 20, 20, 0.8);
-            border: 2px solid #6a0dad;
-            border-radius: 15px;
-            display: flex;
-            box-shadow: 0 0 30px rgba(106, 13, 173, 0.5);
-            color: #ccc;
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Mantém o 3D ao fundo */
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(10px);
-            pointer-events: none; /* Deixa o Three.js capturar cliques ao fundo se necessário */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
         }
 
-        /* Lateral da "Agenda" */
-        .sidebar {
-            width: 30%;
-            border-right: 1px solid #444;
-            padding: 20px;
-            background: rgba(40, 40, 40, 0.5);
+        .java-glow {
+            border: 2px solid #8B5CF6;
+            box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
+            animation: pulse-glow 2s infinite alternate;
         }
 
-        .main-content {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-            pointer-events: all;
+        @keyframes pulse-glow {
+            from { box-shadow: 0 0 10px rgba(139, 92, 246, 0.4); }
+            to { box-shadow: 0 0 30px rgba(139, 92, 246, 0.8); }
         }
 
-        h1 { color: #a855f7; margin-bottom: 5px; }
-        .highlight { color: #fff; font-weight: bold; border-left: 4px solid #6a0dad; padding-left: 10px; }
-        
-        .project-card {
-            background: #1a1a1a;
-            border: 1px solid #333;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 8px;
-            transition: 0.3s;
+        .text-gradient {
+            background: linear-gradient(to right, #ffffff, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .project-card:hover {
-            border-color: #a855f7;
-            transform: translateX(10px);
+        .fade-in {
+            animation: fadeIn 1.5s ease-out;
         }
 
-        .badge {
-            background: #6a0dad;
-            color: white;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-size: 0.8em;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <div id="ui-layer">
-        <div class="sidebar">
-            <h2 style="color: #6a0dad;">2026_</h2>
-            <p><strong>Stack:</strong></p>
-            <p class="highlight">JAVA Expert</p>
-            <p>Spring Boot</p>
-            <p>Hibernate</p>
-            <p>SQL / NoSQL</p>
-        </div>
-        <div class="main-content">
-            <h1>Stefany Santos</h1>
-            <p>Desenvolvedor Java focado em sistemas de alta escalabilidade.</p>
-            <hr style="border: 0; border-top: 1px solid #444;">
-            
-            <h3>Projetos_</h3>
-            <div class="project-card">
-                <span class="badge">Backend</span>
-                <h4>API de Gestão Financeira</h4>
-                <p>Sistema robusto construído com Java 21 e Spring Security.</p>
-            </div>
-            
-            <div class="project-card">
-                <span class="badge">Microservices</span>
-                <h4>E-commerce Engine</h4>
-                <p>Arquitetura distribuída focada em baixa latência.</p>
-            </div>
-        </div>
-    </div>
+    <div id="canvas-container"></div>
 
+    <header class="fixed top-0 w-full z-50 glass-card border-none py-4 px-8 flex justify-between items-center">
+        <div class="text-2xl font-black tracking-tighter text-gradient">DEV.JS</div>
+        <nav class="hidden md:flex space-x-8 text-sm font-medium text-gray-400">
+            <a href="#hero" class="hover:text-purple-500 transition">Início</a>
+            <a href="#skills" class="hover:text-purple-500 transition">Habilidades</a>
+            <a href="#projects" class="hover:text-purple-500 transition">Projetos</a>
+            <a href="#contact" class="hover:text-purple-500 transition">Contato</a>
+        </nav>
+    </header>
+
+    <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-4">
+        <h1 class="text-6xl md:text-8xl font-black mb-6 fade-in tracking-tight">
+            SOLUÇÕES <br><span class="text-gradient">INTERATIVAS</span>
+        </h1>
+        <p class="text-gray-400 max-w-lg mb-8 fade-in text-lg" style="animation-delay: 0.2s;">
+            Desenvolvedora Back e Front-end especializado em interfaces imersivas e arquiteturas robustas em Java.
+        </p>
+        <a href="#projects" class="fade-in bg-purple-600 hover:bg-purple-700 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105" style="animation-delay: 0.4s;">
+            Ver Projetos
+        </a>
+    </section>
+
+    <section id="skills" class="py-20 px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12 text-center">Core Stack</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div class="glass-card p-8 rounded-2xl text-center java-glow">
+                <div class="text-4xl mb-4">☕</div>
+                <h3 class="text-xl font-bold mb-2">JAVA</h3>
+                <p class="text-sm text-gray-400">Desenvolvimento Backend e Sistemas Escaláveis.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center hover:border-purple-500/50">
+                <div class="text-4xl mb-4">🍃</div>
+                <h3 class="text-xl font-bold mb-2">Spring Boot</h3>
+                <p class="text-sm text-gray-400">Microserviços e APIs RESTful modernas.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center hover:border-purple-500/50">
+                <div class="text-4xl mb-4">💾</div>
+                <h3 class="text-xl font-bold mb-2">SQL</h3>
+                <p class="text-sm text-gray-400">Modelagem e otimização de banco de dados.</p>
+            </div>
+            <div class="glass-card p-8 rounded-2xl text-center hover:border-purple-500/50">
+                <div class="text-4xl mb-4">🌿</div>
+                <h3 class="text-xl font-bold mb-2">Git</h3>
+                <p class="text-sm text-gray-400">Controle de versão e CI/CD.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-20 px-8 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold mb-12">Projetos em Destaque</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+            <div class="group relative glass-card rounded-3xl overflow-hidden">
+                <div class="h-64 bg-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                    <span class="text-gray-700 font-bold">PREVIEW_IMG</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition">E-commerce Engine</h3>
+                    <p class="text-gray-400 text-sm">Plataforma escalável desenvolvida com Java e Spring Boot.</p>
+                </div>
+            </div>
+            <div class="group relative glass-card rounded-3xl overflow-hidden">
+                <div class="h-64 bg-gray-900 group-hover:scale-105 transition-transform duration-500 flex items-center justify-center">
+                    <span class="text-gray-700 font-bold">PREVIEW_IMG</span>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition">Dashboard Financeiro</h3>
+                    <p class="text-gray-400 text-sm">Visualização de dados complexos em tempo real.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="py-20 text-center border-t border-gray-900">
+        <p class="text-gray-500 mb-6 font-medium">Vamos construir algo incrível juntos?</p>
+        <div class="flex justify-center space-x-6 text-gray-400">
+            <a href="#" class="hover:text-white transition">LinkedIn</a>
+            <a href="#" class="hover:text-white transition">GitHub</a>
+            <a href="#" class="hover:text-white transition">Email</a>
+        </div>
+        <p class="mt-12 text-xs text-gray-600 uppercase tracking-widest">© 2024 Developer Portfolio</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    
     <script>
-        // Configuração Básica Three.js
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        document.body.appendChild(renderer.domElement);
+        /**
+         * LÓGICA THREE.JS - FUNDO DE PARTÍCULAS INTERATIVO
+         */
+        let scene, camera, renderer, particles, particleSystem;
+        let mouseX = 0, mouseY = 0;
 
-        // Criando Fundo de Partículas (Estilo Poeira Estelar Roxa)
-        const particlesGeometry = new THREE.BufferGeometry();
-        const count = 5000;
-        const positions = new Float32Array(count * 3);
-        for(let i = 0; i < count * 3; i++) {
-            positions[i] = (Math.random() - 0.5) * 10;
+        function initThree() {
+            // Cena e Câmera
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            // Renderizador
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            document.getElementById('canvas-container').appendChild(renderer.domElement);
+
+            // Geometria das Partículas
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            const particleCount = 5000;
+
+            for (let i = 0; i < particleCount; i++) {
+                vertices.push(THREE.MathUtils.randFloatSpread(20)); // X
+                vertices.push(THREE.MathUtils.randFloatSpread(20)); // Y
+                vertices.push(THREE.MathUtils.randFloatSpread(20)); // Z
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+
+            // Material das Partículas (Roxo Vibrante)
+            const material = new THREE.PointsMaterial({
+                color: 0x8B5CF6,
+                size: 0.05,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            particleSystem = new THREE.Points(geometry, material);
+            scene.add(particleSystem);
+
+            // Eventos
+            document.addEventListener('mousemove', onMouseMove);
+            window.addEventListener('resize', onWindowResize);
+            
+            animate();
         }
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-        const particlesMaterial = new THREE.PointsMaterial({ size: 0.015, color: 0x6a0dad });
-        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particles);
 
-        // Objeto Central Animado (Um Cubo Geométrico Cinza/Roxo)
-        const geometry = new THREE.IcosahedronGeometry(1, 1);
-        const material = new THREE.MeshStandardMaterial({ 
-            color: 0x222222, 
-            wireframe: true,
-            emissive: 0x6a0dad,
-            emissiveIntensity: 0.5
-        });
-        const mesh = new THREE.Mesh(geometry, material);
-        scene.add(mesh);
+        function onMouseMove(event) {
+            // Normaliza a posição do mouse de -1 a 1
+            mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+        }
 
-        // Luzes
-        const light = new THREE.PointLight(0xa855f7, 2, 50);
-        light.position.set(2, 2, 2);
-        scene.add(light);
-        scene.add(new THREE.AmbientLight(0x404040));
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
 
-        camera.position.z = 3;
-
-        // Animação
         function animate() {
             requestAnimationFrame(animate);
-            
-            mesh.rotation.x += 0.005;
-            mesh.rotation.y += 0.005;
-            particles.rotation.y += 0.001;
+
+            // Rotação constante suave
+            particleSystem.rotation.y += 0.001;
+            particleSystem.rotation.x += 0.0005;
+
+            // Reação ao mouse: inclina levemente o sistema conforme o cursor
+            particleSystem.rotation.y += (mouseX * 0.05 - particleSystem.rotation.y) * 0.1;
+            particleSystem.rotation.x += (-mouseY * 0.05 - particleSystem.rotation.x) * 0.1;
 
             renderer.render(scene, camera);
         }
 
-        // Responsividade
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        animate();
+        // Inicializa o cenário 3D
+        initThree();
     </script>
 </body>
 </html>
