@@ -3,155 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dev Portfolio | Java Specialist</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
+    <title>Portfolio 3D | Java Developer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <style>
-        body { margin: 0; overflow-x: hidden; background: #050505; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: white; }
-        canvas { display: block; position: fixed; top: 0; left: 0; z-index: -1; }
+        body { margin: 0; overflow: hidden; background-color: #0a0a0a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        canvas { display: block; }
 
-        /* Overlay Content */
-        section {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            text-align: center;
-        }
-
-        .glass-card {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            padding: 3rem;
+        /* Interface Estilo Agenda Overlay */
+        #ui-layer {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
             max-width: 800px;
-            transition: transform 0.3s ease;
+            height: 500px;
+            background: rgba(20, 20, 20, 0.8);
+            border: 2px solid #6a0dad;
+            border-radius: 15px;
+            display: flex;
+            box-shadow: 0 0 30px rgba(106, 13, 173, 0.5);
+            color: #ccc;
+            backdrop-filter: blur(10px);
+            pointer-events: none; /* Deixa o Three.js capturar cliques ao fundo se necessário */
         }
 
-        h1 { font-size: 4rem; margin: 0; background: linear-gradient(45deg, #f89820, #5382a1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        p { font-size: 1.2rem; color: #ccc; }
-
-        .skill-tag {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 10px;
-            border: 2px solid #f89820;
-            color: #f89820;
-            font-weight: bold;
-            border-radius: 50px;
-            font-size: 1.5rem;
-            animation: pulse 2s infinite;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            width: 100%;
-            max-width: 1000px;
-            margin-top: 2rem;
-        }
-
-        .project-item {
-            background: rgba(255, 255, 255, 0.1);
+        /* Lateral da "Agenda" */
+        .sidebar {
+            width: 30%;
+            border-right: 1px solid #444;
             padding: 20px;
-            border-radius: 10px;
-            border-bottom: 4px solid #5382a1;
+            background: rgba(40, 40, 40, 0.5);
         }
 
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(248, 152, 32, 0.4); }
-            70% { box-shadow: 0 0 0 20px rgba(248, 152, 32, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(248, 152, 32, 0); }
+        .main-content {
+            flex: 1;
+            padding: 30px;
+            overflow-y: auto;
+            pointer-events: all;
+        }
+
+        h1 { color: #a855f7; margin-bottom: 5px; }
+        .highlight { color: #fff; font-weight: bold; border-left: 4px solid #6a0dad; padding-left: 10px; }
+        
+        .project-card {
+            background: #1a1a1a;
+            border: 1px solid #333;
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .project-card:hover {
+            border-color: #a855f7;
+            transform: translateX(10px);
+        }
+
+        .badge {
+            background: #6a0dad;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
         }
     </style>
 </head>
 <body>
 
-    <canvas id="bg"></canvas>
-
-    <section>
-        <div class="glass-card">
+    <div id="ui-layer">
+        <div class="sidebar">
+            <h2 style="color: #6a0dad;">2026_</h2>
+            <p><strong>Stack:</strong></p>
+            <p class="highlight">JAVA Expert</p>
+            <p>Spring Boot</p>
+            <p>Hibernate</p>
+            <p>SQL / NoSQL</p>
+        </div>
+        <div class="main-content">
             <h1>Seu Nome</h1>
-            <p>Fullstack Developer & Enthusiast</p>
-            <div class="skill-tag">JAVA EXPERT</div>
-            <p>Especialista em ecossistema Spring, Microserviços e Performance.</p>
-        </div>
-    </section>
-
-    <section id="projects">
-        <h2>Meus Projetos</h2>
-        <div class="projects-grid">
-            <div class="project-item">
-                <h3>API REST Enterprise</h3>
-                <p>Sistema robusto com Spring Boot e PostgreSQL.</p>
+            <p>Desenvolvedor Java focado em sistemas de alta escalabilidade.</p>
+            <hr style="border: 0; border-top: 1px solid #444;">
+            
+            <h3>Projetos_</h3>
+            <div class="project-card">
+                <span class="badge">Backend</span>
+                <h4>API de Gestão Financeira</h4>
+                <p>Sistema robusto construído com Java 21 e Spring Security.</p>
             </div>
-            <div class="project-item">
-                <h3>Microservices Cloud</h3>
-                <p>Arquitetura escalável utilizando Docker e AWS.</p>
-            </div>
-            <div class="project-item">
-                <h3>Java Legacy Refactor</h3>
-                <p>Otimização de performance em sistemas críticos.</p>
+            
+            <div class="project-card">
+                <span class="badge">Microservices</span>
+                <h4>E-commerce Engine</h4>
+                <p>Arquitetura distribuída focada em baixa latência.</p>
             </div>
         </div>
-    </section>
+    </div>
 
     <script>
-        // Setup Inicial
+        // Configuração Básica Three.js
         const scene = new THREE.Scene();
         const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        const renderer = new THREE.WebGLRenderer({ canvas: document.querySelector('#bg'), antialias: true });
-
-        renderer.setPixelRatio(window.devicePixelRatio);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
         renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.position.setZ(30);
+        document.body.appendChild(renderer.domElement);
 
-        // Criando o "Monólito Java" (Um poliedro flutuante)
-        const geometry = new THREE.IcosahedronGeometry(10, 0);
-        const material = new THREE.MeshStandardMaterial({ color: 0xf89820, wireframe: true });
-        const javaCore = new THREE.Mesh(geometry, material);
-        scene.add(javaCore);
-
-        // Adicionando estrelas/partículas ao fundo
-        function addStar() {
-            const geometry = new THREE.SphereGeometry(0.15, 24, 24);
-            const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
-            const star = new THREE.Mesh(geometry, material);
-
-            const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
-            star.position.set(x, y, z);
-            scene.add(star);
+        // Criando Fundo de Partículas (Estilo Poeira Estelar Roxa)
+        const particlesGeometry = new THREE.BufferGeometry();
+        const count = 5000;
+        const positions = new Float32Array(count * 3);
+        for(let i = 0; i < count * 3; i++) {
+            positions[i] = (Math.random() - 0.5) * 10;
         }
-        Array(200).fill().map(addStar);
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        const particlesMaterial = new THREE.PointsMaterial({ size: 0.015, color: 0x6a0dad });
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
 
-        // Iluminação
-        const pointLight = new THREE.PointLight(0xffffff);
-        pointLight.position.set(20, 20, 20);
-        const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
-        scene.add(pointLight, ambientLight);
+        // Objeto Central Animado (Um Cubo Geométrico Cinza/Roxo)
+        const geometry = new THREE.IcosahedronGeometry(1, 1);
+        const material = new THREE.MeshStandardMaterial({ 
+            color: 0x222222, 
+            wireframe: true,
+            emissive: 0x6a0dad,
+            emissiveIntensity: 0.5
+        });
+        const mesh = new THREE.Mesh(geometry, material);
+        scene.add(mesh);
 
-        // Animação de Scroll
-        function moveCamera() {
-            const t = document.body.getBoundingClientRect().top;
-            javaCore.rotation.x += 0.05;
-            javaCore.rotation.y += 0.075;
-            javaCore.rotation.z += 0.05;
+        // Luzes
+        const light = new THREE.PointLight(0xa855f7, 2, 50);
+        light.position.set(2, 2, 2);
+        scene.add(light);
+        scene.add(new THREE.AmbientLight(0x404040));
 
-            camera.position.z = t * -0.01 + 30;
-            camera.position.y = t * -0.002;
-            camera.rotation.y = t * -0.0002;
-        }
-        document.body.onscroll = moveCamera;
+        camera.position.z = 3;
 
-        // Loop de Renderização
+        // Animação
         function animate() {
             requestAnimationFrame(animate);
-
-            javaCore.rotation.x += 0.005;
-            javaCore.rotation.y += 0.005;
+            
+            mesh.rotation.x += 0.005;
+            mesh.rotation.y += 0.005;
+            particles.rotation.y += 0.001;
 
             renderer.render(scene, camera);
         }
