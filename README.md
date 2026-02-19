@@ -43,9 +43,8 @@ Minha jornada na tecnologia começou pela curiosidade em entender como grandes s
 
 ## 🚀 Projetos em Destaque
 
-**[Nome do Projeto 1]** Descrição curta e elegante do que o sistema faz e quais tecnologias principais usou.
-[➔ Ver Repositório](https://github.com/seu-usuario/projeto-1)
-
+Agenda eventos
+[➔ Ver Repositório]([[https://github.com/seu-usuario/projeto-1])
 **[Nome do Projeto 2]** Descrição curta de outro projeto relevante (ex: um sistema em Java ou C#).
 [➔ Ver Repositório](https://github.com/seu-usuario/projeto-2)
 
