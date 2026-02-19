@@ -13,7 +13,7 @@
 
 <td align="right">
 
-  <img src="file:///C:/Users/stefanylety/Music/IMG_20260111_154127_663.webp" alt="Foto de Stefany">
+  <img src="file:///C:/Users/stefanylety/Downloads/FotodaStefanyportfolio.jpg%20-%20Editado.png" alt="Foto de Stefany">
 
 </td>
 
