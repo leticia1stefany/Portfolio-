@@ -1,231 +1,82 @@
-<!DOCTYPE html>
-<html lang="pt-br" class="scroll-smooth">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefany Santos | Dev Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #000000;
-            color: #ffffff;
-            margin: 0;
-            overflow-x: hidden;
-            cursor: none; /* Esconde o cursor padrão para o personalizado */
-        }
-
-        #bg-canvas {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at center, #110022 0%, #000000 100%);
-        }
-
-        /* Cursor Personalizado */
-        #custom-cursor {
-            width: 20px;
-            height: 20px;
-            background: rgba(139, 92, 246, 0.5);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.1s ease, background 0.3s ease;
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .glass {
-            background: rgba(255, 255, 255, 0.03);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: border 0.3s ease;
-        }
-
-        .glass:hover {
-            border: 1px solid rgba(139, 92, 246, 0.5);
-        }
-
-        .purple-gradient-text {
-            background: linear-gradient(135deg, #ffffff 30%, #a78bfa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        /* Animação de entrada */
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease-out;
-        }
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
-</head>
-<body>
-
-    <div id="custom-cursor"></div>
-    <canvas id="bg-canvas"></canvas>
-
-    <header class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center">
-        <div class="text-xl font-black tracking-widest text-white">SS<span class="text-purple-500">.</span></div>
-        <nav class="flex gap-8 text-xs font-bold uppercase tracking-widest text-gray-400">
-            <a href="#hero" class="hover:text-white transition nav-link">Início</a>
-            <a href="#about" class="hover:text-white transition nav-link">Sobre</a>
-            <a href="#skills" class="hover:text-white transition nav-link">Habilidades</a>
-        </nav>
-    </header>
-
-    <section id="hero" class="min-h-screen flex flex-col justify-center items-center px-6 relative">
-        <div class="text-center mb-16 reveal">
-            <h1 class="text-7xl md:text-9xl font-black tracking-tighter mb-2">STEFANY</h1>
-            <h2 class="text-6xl md:text-8xl font-black tracking-tighter purple-gradient-text">SANTOS</h2>
-        </div>
-
-        <div id="about" class="max-w-4xl w-full glass rounded-[2.5rem] p-8 md:p-12 flex flex-col md:flex-row items-center gap-10 reveal">
-            <div class="relative shrink-0">
-                <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full blur opacity-40"></div>
-                <img src="https://via.placeholder.com/300" alt="Stefany Santos" class="relative w-48 h-48 md:w-56 md:h-56 rounded-full object-cover border-2 border-white/10">
+<section id="projects" class="py-32 px-6 max-w-6xl mx-auto">
+        <h3 class="text-center text-3xl font-black mb-16 tracking-widest uppercase reveal">Projetos em Destaque</h3>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="group reveal">
+                <div class="glass p-4 rounded-t-2xl border-b-0 flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                </div>
+                <div class="glass p-8 rounded-b-2xl group-hover:border-purple-500/50 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-2xl font-bold">Agenda de Eventos</h4>
+                        <i class="fa-solid fa-calendar-days text-purple-500 text-2xl"></i>
+                    </div>
+                    <p class="text-gray-400 mb-6 font-light">
+                        Sistema para organização de cronogramas, com validação de datas e persistência de dados. Desenvolvido para facilitar a gestão de compromissos acadêmicos e profissionais.
+                    </p>
+                    <div class="flex gap-3 mb-6">
+                        <span class="text-[10px] px-3 py-1 bg-purple-500/20 rounded-full border border-purple-500/30">JAVA</span>
+                        <span class="text-[10px] px-3 py-1 bg-blue-500/20 rounded-full border border-blue-500/30">SQL</span>
+                    </div>
+                    <a href="https://github.com/leticia1stefany" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold hover:text-purple-400 transition nav-link">
+                        VER REPOSITÓRIO <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
+                </div>
             </div>
-            
-            <div class="text-left">
-                <span class="text-purple-400 font-bold tracking-widest uppercase text-sm">Fullstack Explorer & Backend Lover</span>
-                <p class="text-gray-300 text-lg mt-4 leading-relaxed font-light">
-                    Olá! Sou a Stefany, tenho <span class="text-white font-bold">17 anos</span> e sou apaixonada por transformar lógica em soluções digitais. Com foco em <span class="text-white">Java e ecossistema Spring</span>, busco criar sistemas eficientes e escaláveis, unindo fundamentos de engenharia com as melhores práticas de desenvolvimento.
-                </p>
-                
-                <div class="flex gap-6 mt-8">
-                    <a href="#" class="text-2xl text-gray-400 hover:text-white transition-all nav-link"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/leticia1stefany" target="_blank" class="text-2xl text-gray-400 hover:text-white transition-all nav-link"><i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:stefanyf.santos09@gmail.com" class="text-2xl text-gray-400 hover:text-white transition-all nav-link"><i class="fa-solid fa-envelope"></i></a>
+
+            <div class="group reveal">
+                <div class="glass p-4 rounded-t-2xl border-b-0 flex gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+                </div>
+                <div class="glass p-8 rounded-b-2xl group-hover:border-green-500/50 transition-all">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-2xl font-bold">Gerenciador de Estoque</h4>
+                        <i class="fa-solid fa-boxes-stacked text-green-500 text-2xl"></i>
+                    </div>
+                    <p class="text-gray-400 mb-6 font-light">
+                        Aplicação focada em controle de entrada/saída de produtos, cálculo de valor total e alertas de baixo estoque. Implementado com foco em arquitetura limpa.
+                    </p>
+                    <div class="flex gap-3 mb-6">
+                        <span class="text-[10px] px-3 py-1 bg-green-500/20 rounded-full border border-green-500/30">SPRING BOOT</span>
+                        <span class="text-[10px] px-3 py-1 bg-orange-500/20 rounded-full border border-orange-500/30">MODELAGEM</span>
+                    </div>
+                    <a href="https://github.com/leticia1stefany" target="_blank" class="inline-flex items-center gap-2 text-sm font-bold hover:text-green-400 transition nav-link">
+                        VER REPOSITÓRIO <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="py-32 px-6 max-w-6xl mx-auto">
-        <h3 class="text-center text-3xl font-black mb-16 tracking-widest uppercase reveal">Tech Stack & Competências</h3>
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-brands fa-java text-4xl text-purple-500 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Java Core</h3>
-                <p class="text-gray-500 text-xs mt-2">Programação Orientada a Objetos e lógica avançada.</p>
+    <section id="contact" class="py-32 px-6">
+        <div class="max-w-4xl mx-auto glass rounded-[3rem] p-12 text-center reveal relative overflow-hidden">
+            <div class="absolute -top-24 -left-24 w-48 h-48 bg-purple-600/20 blur-[100px]"></div>
+            
+            <h3 class="text-4xl font-black mb-4">Vamos construir algo juntos?</h3>
+            <p class="text-gray-400 mb-10 max-w-md mx-auto">Estou disponível para novos projetos, colaborações ou apenas para trocar uma ideia sobre tecnologia.</p>
+            
+            <div class="flex flex-wrap justify-center gap-6">
+                <a href="https://wa.me/SEU_NUMERO" target="_blank" class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-purple-500 hover:text-white transition-all transform hover:scale-105 flex items-center gap-2 nav-link">
+                    <i class="fa-brands fa-whatsapp text-xl"></i> WHATSAPP
+                </a>
+                
+                <a href="mailto:stefanyf.santos09@gmail.com" class="px-8 py-4 glass font-bold rounded-full hover:border-purple-500 transition-all transform hover:scale-105 flex items-center gap-2 nav-link">
+                    <i class="fa-solid fa-envelope"></i> EMAIL
+                </a>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-solid fa-leaf text-4xl text-green-500 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Spring Boot</h3>
-                <p class="text-gray-500 text-xs mt-2">Criação de APIs RESTful e microserviços.</p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-solid fa-database text-4xl text-blue-400 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Banco de Dados</h3>
-                <p class="text-gray-500 text-xs mt-2">Modelagem SQL e manipulação de dados estruturados.</p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-solid fa-diagram-project text-4xl text-orange-400 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Modelagem</h3>
-                <p class="text-gray-500 text-xs mt-2">Arquitetura de sistemas e diagramas UML.</p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-solid fa-vial-circle-check text-4xl text-red-400 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Testes</h3>
-                <p class="text-gray-500 text-xs mt-2">Garantia de qualidade e validação de software.</p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-solid fa-mobile-screen-button text-4xl text-yellow-400 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Apps</h3>
-                <p class="text-gray-500 text-xs mt-2">Desenvolvimento de aplicativos móveis e UX.</p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-solid fa-microchip text-4xl text-cyan-400 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Hardware</h3>
-                <p class="text-gray-500 text-xs mt-2">Fundamentos de Eletroeletrônica e circuitos.</p>
-            </div>
-
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
-                <i class="fa-brands fa-git-alt text-4xl text-orange-600 mb-4"></i>
-                <h3 class="font-bold text-lg uppercase">Git/GitHub</h3>
-                <p class="text-gray-500 text-xs mt-2">Versionamento de código e colaboração remota.</p>
+            <div class="mt-12 pt-8 border-t border-white/5 flex justify-center gap-8 text-gray-500">
+                <a href="https://linkedin.com/in/SEU_USER" class="hover:text-white transition nav-link">LinkedIn</a>
+                <a href="https://github.com/leticia1stefany" class="hover:text-white transition nav-link">GitHub</a>
+                <a href="#" class="hover:text-white transition nav-link">Instagram</a>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 text-xs tracking-widest uppercase border-t border-white/5">
-        &copy; 2026 Stefany Santos. Codificando o amanhã.
+    <footer class="py-10 text-center text-gray-600 text-[10px] tracking-[0.2em] uppercase border-t border-white/5">
+        &copy; 2026 Stefany Santos <span class="mx-2">•</span> Handcrafted with Code
     </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
-
-    <script>
-        // --- CURSOR PERSONALIZADO ---
-        const cursor = document.querySelector('#custom-cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-
-        document.querySelectorAll('.nav-link, .glass').forEach(link => {
-            link.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2.5)');
-            link.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-        });
-
-        // --- ANIMAÇÃO DE REVELAÇÃO AO SCROLL ---
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // --- FUNDO THREE.JS (ESTRELAS) ---
-        const canvas = document.querySelector('#bg-canvas');
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 2;
-
-        const particlesGeometry = new THREE.BufferGeometry();
-        const posArray = new Float32Array(3000 * 3);
-        for(let i=0; i < 3000 * 3; i++) posArray[i] = (Math.random() - 0.5) * 6;
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.005, color: '#8B5CF6', transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending
-        });
-
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particlesMesh);
-
-        function animate() {
-            requestAnimationFrame(animate);
-            particlesMesh.rotation.y += 0.001;
-            renderer.render(scene, camera);
-        }
-
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        animate();
-    </script>
-</body>
-</html>
