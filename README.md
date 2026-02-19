@@ -44,7 +44,7 @@ Minha jornada na tecnologia começou pela curiosidade em entender como grandes s
 ## 🚀 Projetos em Destaque
 
 [Agenda de Eventos Automatizada]
-[➔ Ver Repositório]([https://github.com/seu-usuario/projeto-1](https://github.com/leticia1stefany/agenda-eventos)
+[➔ Ver Repositório](https://github.com/leticia1stefany/agenda-eventos)
 
 [Gerenciamento de Estoques] 
 [➔ Ver Repositório](https://github.com/leticia1stefany/GerenciarEstoques)
