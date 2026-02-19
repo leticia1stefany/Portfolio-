@@ -43,11 +43,11 @@ Minha jornada na tecnologia começou pela curiosidade em entender como grandes s
 
 ## 🚀 Projetos em Destaque
 
-Agenda eventos
-[➔ Ver Repositório]([[https://github.com/seu-usuario/projeto-1])
-**[Nome do Projeto 2]** Descrição curta de outro projeto relevante (ex: um sistema em Java ou C#).
-[➔ Ver Repositório](https://github.com/seu-usuario/projeto-2)
+[Agenda de Eventos Automatizada]
+[➔ Ver Repositório](https://github.com/seu-usuario/projeto-1)
 
+**[Nome do Projeto 2]** Descrição curta de outro projeto relevante (ex: um sistema em Java ou C#).  
+[➔ Ver Repositório](https://github.com/seu-usuario/projeto-2)
 ---
 
 ## 📫 Vamos conversar?
