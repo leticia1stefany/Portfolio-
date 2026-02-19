@@ -39,7 +39,7 @@ Minha jornada na tecnologia começou pela curiosidade em entender como grandes s
 ---
 
 ## 📫 Vamos conversar?
-[LinkedIn]([https://github.com/leticia1stefany](https://www.linkedin.com/in/stefany-francisco-dos-santos-9701ab335/)) • [E-mail](mailto:seu-email@exemplo.com)
+[LinkedIn]([https://github.com/leticia1stefany](https://www.linkedin.com/in/stefany-francisco-dos-santos-9701ab335/) • [E-mail](mailto:seu-email@exemplo.com)
 
 ---
 <div align="center">
