@@ -1,8 +1,6 @@
 <table align="center">
 
   <tr>
-
-```
 <td align="left">
 
   <h1>Stefany F. Santos</h1>
@@ -15,10 +13,9 @@
 
 <td align="right">
 
-  <img src="LINK_DIRETO_DA_IMAGEM_AQUI" width="140px" style="border-radius: 50%;" alt="Foto de Stefany">
+  <img src="file:///C:/Users/stefanylety/Music/IMG_20260111_154127_663.webp" alt="Foto de Stefany">
 
 </td>
-```
 
   </tr>
 
