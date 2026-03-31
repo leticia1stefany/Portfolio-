@@ -15,7 +15,7 @@
             color: #ffffff;
             margin: 0;
             overflow-x: hidden;
-            cursor: none; /* Cursor personalizado ativo */
+            cursor: none;
         }
 
         #bg-canvas {
@@ -26,7 +26,6 @@
             background: radial-gradient(circle at center, #110022 0%, #000000 100%);
         }
 
-        /* Cursor Personalizado */
         #custom-cursor {
             width: 20px;
             height: 20px;
@@ -53,7 +52,6 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* Animação de entrada suave */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
@@ -62,6 +60,33 @@
         .reveal.active {
             opacity: 1;
             transform: translateY(0);
+        }
+
+        .skill-card:hover {
+            border-color: rgba(139, 92, 246, 0.4);
+            background: rgba(139, 92, 246, 0.06);
+            transform: translateY(-4px);
+        }
+
+        .project-card:hover .project-glow {
+            opacity: 1;
+        }
+
+        .project-glow {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            position: absolute;
+            inset: -1px;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+
+        .tag {
+            font-size: 9px;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
         }
 
         @media (max-width: 768px) {
@@ -86,6 +111,7 @@
         </nav>
     </header>
 
+    <!-- HERO -->
     <section id="hero" class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
         <div class="text-center mb-16 reveal">
             <h1 class="text-6xl md:text-9xl font-black tracking-tighter mb-2">STEFANY</h1>
@@ -113,177 +139,95 @@
         </div>
     </section>
 
+    <!-- SKILLS -->
     <section id="skills" class="py-32 px-6 max-w-6xl mx-auto">
-        <h3 class="text-center text-3xl font-black mb-16 tracking-widest uppercase reveal">Tech Stack & Competências</h3>
+        <h3 class="text-center text-3xl font-black mb-4 tracking-widest uppercase reveal">Tech Stack & Competências</h3>
+        <p class="text-center text-gray-500 text-sm mb-16 reveal">Ferramentas e tecnologias que fazem parte da minha jornada</p>
         
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 reveal">
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5 reveal">
+
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-brands fa-java text-4xl text-purple-500 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Java & Lógica</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Fundamentos e POO</p>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-solid fa-leaf text-4xl text-green-500 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Spring Boot</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Desenvolvimento Backend</p>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-solid fa-database text-4xl text-blue-400 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Banco de Dados</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Modelagem e SQL</p>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-solid fa-vial-circle-check text-4xl text-red-400 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Teste de Sistemas</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Qualidade e Validação</p>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-solid fa-diagram-project text-4xl text-orange-400 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Modelagem UML</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Arquitetura de Software</p>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-solid fa-mobile-screen-button text-4xl text-yellow-400 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Apps Mobile</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Desenvolvimento Mobile</p>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-solid fa-microchip text-4xl text-cyan-400 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Eletroeletrônica</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Circuitos e Hardware</p>
             </div>
 
-            <div class="glass p-8 rounded-3xl text-center" data-tilt>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
                 <i class="fa-brands fa-git-alt text-4xl text-orange-600 mb-4"></i>
                 <h3 class="font-bold text-sm uppercase">Git & GitHub</h3>
                 <p class="text-gray-500 text-xs mt-2 italic">Versionamento</p>
             </div>
-        </div>
-    </section>
 
-    <section id="projects" class="py-32 px-6 max-w-6xl mx-auto">
-        <h3 class="text-center text-3xl font-black mb-16 tracking-widest uppercase reveal">Projetos Recentes</h3>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <div class="group reveal">
-                <div class="glass p-4 rounded-t-2xl border-b-0 flex gap-2">
-                    <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
-                    <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
-                    <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
-                </div>
-                <div class="glass p-8 rounded-b-2xl group-hover:border-purple-500/50 transition-all">
-                    <h4 class="text-2xl font-bold mb-2">Agenda de Eventos</h4>
-                    <p class="text-gray-400 mb-6 text-sm font-light">Organização de cronogramas e gestão de compromissos com validação inteligente de datas.</p>
-                    <div class="flex gap-2 mb-6">
-                        <span class="text-[9px] px-3 py-1 bg-purple-500/10 border border-purple-500/30 rounded-full">JAVA</span>
-                        <span class="text-[9px] px-3 py-1 bg-blue-500/10 border border-blue-500/30 rounded-full">SQL</span>
-                    </div>
-                    <a href="https://github.com/leticia1stefany" class="text-xs font-bold hover:text-purple-400 nav-link uppercase tracking-tighter">Ver Código →</a>
-                </div>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
+                <i class="fa-brands fa-html5 text-4xl text-orange-500 mb-4"></i>
+                <h3 class="font-bold text-sm uppercase">HTML & CSS</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">Estrutura e Estilo Web</p>
             </div>
 
-            <div class="group reveal">
-                <div class="glass p-4 rounded-t-2xl border-b-0 flex gap-2">
-                    <div class="w-2 h-2 rounded-full bg-red-500/50"></div>
-                    <div class="w-2 h-2 rounded-full bg-yellow-500/50"></div>
-                    <div class="w-2 h-2 rounded-full bg-green-500/50"></div>
-                </div>
-                <div class="glass p-8 rounded-b-2xl group-hover:border-green-500/50 transition-all">
-                    <h4 class="text-2xl font-bold mb-2">Gerenciador de Estoque</h4>
-                    <p class="text-gray-400 mb-6 text-sm font-light">Controle de fluxo de produtos, entradas, saídas e relatórios automáticos de baixo estoque.</p>
-                    <div class="flex gap-2 mb-6">
-                        <span class="text-[9px] px-3 py-1 bg-green-500/10 border border-green-500/30 rounded-full">SPRING BOOT</span>
-                        <span class="text-[9px] px-3 py-1 bg-orange-500/10 border border-orange-500/30 rounded-full">MODELAGEM</span>
-                    </div>
-                    <a href="https://github.com/leticia1stefany" class="text-xs font-bold hover:text-green-400 nav-link uppercase tracking-tighter">Ver Código →</a>
-                </div>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
+                <i class="fa-brands fa-js text-4xl text-yellow-300 mb-4"></i>
+                <h3 class="font-bold text-sm uppercase">JavaScript</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">Interatividade Front-end</p>
             </div>
-        </div>
-    </section>
 
-    <section id="contact" class="py-32 px-6">
-        <div class="max-w-4xl mx-auto glass rounded-[3rem] p-12 text-center reveal relative overflow-hidden">
-            <div class="absolute -top-24 -left-24 w-48 h-48 bg-purple-600/10 blur-[100px]"></div>
-            <h3 class="text-4xl font-black mb-6">Vamos conversar?</h3>
-            <p class="text-gray-400 mb-10 max-w-sm mx-auto font-light">Interessado em colaborar ou conhecer mais sobre meu trabalho?</p>
-            
-            <div class="flex flex-wrap justify-center gap-6">
-                <a href="https://wa.me/SEUNUMERO" target="_blank" class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-purple-600 hover:text-white transition-all nav-link">WHATSAPP</a>
-                <a href="mailto:stefanyf.santos09@gmail.com" class="px-8 py-4 glass font-bold rounded-full hover:border-purple-500 transition-all nav-link">EMAIL</a>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
+                <i class="fa-solid fa-boxes-stacked text-4xl text-pink-400 mb-4"></i>
+                <h3 class="font-bold text-sm uppercase">Maven</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">Gerência de Dependências</p>
             </div>
-        </div>
-    </section>
 
-    <footer class="py-10 text-center text-gray-600 text-[10px] tracking-[0.3em] uppercase border-t border-white/5">
-        &copy; 2026 Stefany Santos • Built with Passion
-    </footer>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
+                <i class="fa-solid fa-sitemap text-4xl text-teal-400 mb-4"></i>
+                <h3 class="font-bold text-sm uppercase">API REST</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">Integração de Sistemas</p>
+            </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.160.0/three.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
+                <i class="fa-solid fa-shield-halved text-4xl text-indigo-400 mb-4"></i>
+                <h3 class="font-bold text-sm uppercase">Segurança</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">Spring Security & JWT</p>
+            </div>
 
-    <script>
-        // Cursor
-        const cursor = document.querySelector('#custom-cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
-        document.querySelectorAll('.nav-link, .glass').forEach(el => {
-            el.addEventListener('mouseenter', () => cursor.style.transform = 'scale(2.5)');
-            el.addEventListener('mouseleave', () => cursor.style.transform = 'scale(1)');
-        });
+            <div class="glass skill-card p-7 rounded-3xl text-center" data-tilt>
+                <i class="fa-solid fa-terminal text-4xl text-gray-300 mb-4"></i>
+                <h3 class="font-bold text-sm uppercase">Linux & Terminal</h3>
+                <p class="text-gray-500 text-xs mt-2 italic">Linha de Comando</p>
+            </div>
 
-        // Intersection Observer (Scroll Reveal)
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) entry.target.classList.add('active');
-            });
-        }, { threshold: 0.1 });
-        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-        // Three.js Background
-        const canvas = document.querySelector('#bg-canvas');
-        const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
-        const scene = new THREE.Scene();
-        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-        camera.position.z = 2;
-
-        const particlesGeometry = new THREE.BufferGeometry();
-        const posArray = new Float32Array(2500 * 3);
-        for(let i=0; i < 2500 * 3; i++) posArray[i] = (Math.random() - 0.5) * 6;
-        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
-        const particlesMaterial = new THREE.PointsMaterial({
-            size: 0.005, color: '#8B5CF6', transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending
-        });
-        const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
-        scene.add(particlesMesh);
-
-        function animate() {
-            requestAnimationFrame(animate);
-            particlesMesh.rotation.y += 0.0008;
-            renderer.render(scene, camera);
-        }
-        window.addEventListener('resize', () => {
-            camera.aspect = window.innerWidth / window.innerHeight;
-            camera.updateProjectionMatrix();
-            renderer.setSize(window.innerWidth, window.innerHeight);
-        });
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        animate();
-
-        // Inicializar Tilt
-        VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
-            max: 10,
-            speed: 400,
-            glare: true,
-            "max-glare": 0.1,
-        });
-    </script>
-</body>
-</html>
+            <div class=
