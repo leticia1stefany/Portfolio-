@@ -22,6 +22,13 @@
             background: rgba(255, 255, 255, 0.03);
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(167, 139, 250, 0.5);
+            transform: translateY(-2px);
         }
 
         .purple-gradient-text {
@@ -29,66 +36,112 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .skill-tag {
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.025em;
+        }
     </style>
 </head>
 
 <body>
 
-<header class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center bg-black/20 backdrop-blur-md">
+<header class="fixed top-0 w-full z-50 py-6 px-10 flex justify-between items-center bg-black/20 backdrop-blur-md border-b border-white/5">
     <div class="text-xl font-black tracking-widest">SS<span class="text-purple-500">.</span></div>
+    <nav class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+        <a href="#inicio" class="hover:text-white transition">Início</a>
+        <a href="#habilidades" class="hover:text-white transition">Habilidades</a>
+        <a href="#projetos" class="hover:text-white transition">Projetos</a>
+        <a href="#contato" class="hover:text-white transition">Contato</a>
+    </nav>
 </header>
 
-<!-- HERO -->
-<section class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
+<section id="inicio" class="min-h-screen flex flex-col justify-center items-center px-6 pt-20">
     <div class="text-center mb-10">
-        <h1 class="text-6xl font-black">STEFANY</h1>
-        <h2 class="text-5xl font-black purple-gradient-text">SANTOS</h2>
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter">STEFANY</h1>
+        <h2 class="text-5xl md:text-7xl font-black purple-gradient-text tracking-tighter">SANTOS</h2>
     </div>
 
     <div class="glass rounded-3xl p-8 text-center max-w-xl">
-        <!-- IMPORTANTE: troque pela sua imagem -->
-        <img src="sua-foto.jpg" class="w-40 h-40 rounded-full mx-auto mb-6 object-cover">
+        <div class="w-40 h-40 rounded-full mx-auto mb-6 border-2 border-purple-500/30 p-1">
+            <img src="sua-foto.jpg" alt="Stefany Santos" class="w-full h-full rounded-full object-cover shadow-2xl">
+        </div>
 
-        <p class="text-gray-300">
-            Olá! Sou Stefany, desenvolvedora focada em Java e Spring Boot 🚀
+        <p class="text-gray-300 leading-relaxed">
+            Olá! Sou Stefany, desenvolvedora focada no ecossistema <span class="text-purple-400 font-bold">Java e Spring Boot</span>. 
+            Especialista em construir soluções escaláveis e apaixonada por engenharia de software. 🚀
         </p>
     </div>
 </section>
 
-<!-- SKILLS -->
-<section class="py-20 text-center">
-    <h3 class="text-3xl font-bold mb-10">Habilidades</h3>
+<section id="habilidades" class="py-24 text-center max-w-5xl mx-auto px-6">
+    <h3 class="text-3xl font-bold mb-4">Competências Técnicas</h3>
+    <p class="text-gray-500 mb-12">Tecnologias e metodologias que utilizo para criar soluções</p>
 
-    <div class="flex flex-wrap justify-center gap-4">
-        <span class="glass px-4 py-2 rounded-full">Java</span>
-        <span class="glass px-4 py-2 rounded-full">Spring Boot</span>
-        <span class="glass px-4 py-2 rounded-full">SQL</span>
-        <span class="glass px-4 py-2 rounded-full">HTML/CSS</span>
-        <span class="glass px-4 py-2 rounded-full">JavaScript</span>
+    <div class="flex flex-wrap justify-center gap-3">
+        <span class="glass skill-tag px-5 py-2.5 rounded-full border-purple-500/40 border text-purple-300">Java (JDK 17+)</span>
+        <span class="glass skill-tag px-5 py-2.5 rounded-full border-purple-500/40 border text-purple-300">Spring Boot</span>
+        
+        <span class="glass skill-tag px-5 py-2.5 rounded-full">Lógica de Programação</span>
+        <span class="glass skill-tag px-5 py-2.5 rounded-full">POO (Programação Orientada a Objetos)</span>
+        <span class="glass skill-tag px-5 py-2.5 rounded-full">Desenvolvimento de Sistemas</span>
+        
+        <span class="glass skill-tag px-5 py-2.5 rounded-full">Banco de Dados (SQL/NoSQL)</span>
+        <span class="glass skill-tag px-5 py-2.5 rounded-full">Modelagem de Sistemas (UML/DER)</span>
+        
+        <span class="glass skill-tag px-5 py-2.5 rounded-full text-blue-300">Programação de Apps</span>
+        <span class="glass skill-tag px-5 py-2.5 rounded-full text-green-300">IoT (Internet das Coisas)</span>
+        
+        <span class="glass skill-tag px-5 py-2.5 rounded-full text-gray-400">HTML5 / CSS3</span>
+        <span class="glass skill-tag px-5 py-2.5 rounded-full text-gray-400">JavaScript</span>
     </div>
 </section>
 
-<!-- PROJETOS -->
-<section class="py-20 text-center">
-    <h3 class="text-3xl font-bold mb-10">Projetos</h3>
+<section id="projetos" class="py-24 text-center px-6">
+    <h3 class="text-3xl font-bold mb-12">Projetos em Destaque</h3>
 
-    <div class="max-w-xl mx-auto glass p-6 rounded-2xl">
-        <h4 class="text-xl font-bold">Agenda de Eventos</h4>
-        <p class="text-gray-400">Sistema para gerenciamento de eventos</p>
+    <div class="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+        <div class="glass p-8 rounded-3xl text-left">
+            <div class="text-purple-500 mb-4"><i class="fas fa-calendar-alt text-2xl"></i></div>
+            <h4 class="text-xl font-bold mb-2">Agenda de Eventos</h4>
+            <p class="text-gray-400 text-sm mb-4">API REST desenvolvida com Spring Boot para gestão completa de eventos corporativos.</p>
+            <div class="flex gap-2">
+                <span class="text-[10px] bg-white/10 px-2 py-1 rounded">Java</span>
+                <span class="text-[10px] bg-white/10 px-2 py-1 rounded">PostgreSQL</span>
+            </div>
+        </div>
+
+        <div class="glass p-8 rounded-3xl text-left border-dashed border-white/20">
+            <div class="text-green-500 mb-4"><i class="fas fa-microchip text-2xl"></i></div>
+            <h4 class="text-xl font-bold mb-2">Sistema IoT / App</h4>
+            <p class="text-gray-400 text-sm mb-4">Próximo projeto incrível sendo documentado...</p>
+        </div>
     </div>
 </section>
 
-<!-- CONTATO -->
-<section class="py-20 text-center">
-    <h3 class="text-3xl font-bold mb-6">Contato</h3>
-
-    <a href="mailto:seuemail@gmail.com" class="px-6 py-3 bg-white text-black rounded-full">
-        Enviar Email
-    </a>
+<section id="contato" class="py-24 text-center">
+    <div class="glass max-w-2xl mx-auto py-16 px-6 rounded-[3rem]">
+        <h3 class="text-3xl font-bold mb-6">Vamos conversar?</h3>
+        <p class="text-gray-400 mb-10">Estou disponível para novas oportunidades e colaborações em projetos.</p>
+        
+        <div class="flex flex-col md:flex-row justify-center gap-4">
+            <a href="mailto:seuemail@gmail.com" class="px-8 py-4 bg-white text-black font-bold rounded-full hover:bg-purple-500 hover:text-white transition-all duration-300">
+                <i class="fas fa-envelope mr-2"></i> Enviar Email
+            </a>
+            <a href="https://linkedin.com/in/seulink" target="_blank" class="px-8 py-4 glass text-white font-bold rounded-full hover:border-purple-500 transition-all">
+                <i class="fab fa-linkedin mr-2"></i> LinkedIn
+            </a>
+        </div>
+    </div>
 </section>
 
-<footer class="text-center py-6 text-gray-500">
-    © 2026 Stefany Santos
+<footer class="text-center py-12 text-gray-500 text-sm">
+    <div class="mb-4">
+        <a href="#" class="mx-2 hover:text-white"><i class="fab fa-github"></i></a>
+        <a href="#" class="mx-2 hover:text-white"><i class="fab fa-instagram"></i></a>
+    </div>
+    <p>© 2026 Stefany Santos • Desenvolvido com Java & 💜</p>
 </footer>
 
 </body>
