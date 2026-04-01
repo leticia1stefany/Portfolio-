@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefany Santos | Téc </title>
+    <title>Stefany Santos | Portfólio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -11,69 +11,45 @@
     
     <style>
         :root { --bg-dark: #0a0a0a; --accent: #3b82f6; }
-        body { background: var(--bg-dark); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        body { background: var(--bg-dark); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* ESTILO DO MENU OVERLAY */
+        /* MENU OVERLAY */
         .menu-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(10, 10, 10, 0.98);
             z-index: 2000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            pointer-events: none;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none;
             transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
         }
-
         .menu-overlay.active { opacity: 1; pointer-events: auto; }
-
         .menu-content a {
-            font-size: clamp(3rem, 10vw, 6rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            display: block;
-            line-height: 1.1;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 900; text-transform: uppercase; display: block;
+            color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.3);
             transition: 0.4s;
-            position: relative;
         }
+        .menu-content a:hover { color: white; -webkit-text-stroke: 1px white; transform: skewX(-10deg); }
 
-        .menu-content a:hover {
-            color: white;
-            -webkit-text-stroke: 1px white;
-            transform: skewX(-10deg);
-        }
-
-        .menu-bg-img {
-            position: absolute;
-            width: 400px;
-            height: 500px;
-            background-size: cover;
-            background-position: center;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            z-index: -1;
-            border-radius: 10px;
-            filter: grayscale(100%);
-        }
-
+        /* SEÇÕES */
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; }
-        .hero h1 { font-size: clamp(3rem, 10vw, 5rem); font-weight: 900; letter-spacing: -2px; line-height: 0.9; }
+        .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; letter-spacing: -2px; line-height: 0.9; }
         
         .glass {
-            background: rgba(255, 255, 255, 0.03);
+            background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: 0.3s;
+            transition: all 0.4s ease;
         }
-        .glass:hover { border-color: var(--accent); background: rgba(59, 130, 246, 0.05); }
+        .glass:hover { border-color: var(--accent); background: rgba(59, 130, 246, 0.05); transform: translateY(-5px); }
+
+        .tech-card {
+            background: rgba(23, 23, 23, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s ease;
+        }
+        .tech-card:hover { border-color: var(--accent); }
     </style>
 </head>
 <body>
@@ -91,11 +67,10 @@
 </header>
 
 <div id="menuOverlay" class="menu-overlay">
-    <div id="hoverImg" class="menu-bg-img"></div>
     <div class="menu-content text-center">
         <a href="#inicio" onclick="toggleMenu()">Início</a>
         <a href="#projetos" onclick="toggleMenu()">Projetos</a>
-        <a href="#tech-stack" onclick="toggleMenu()">Habilidades</a>
+        <a href="#tech-stack" onclick="toggleMenu()">Stack</a>
         <a href="#contato" onclick="toggleMenu()">Contato</a>
     </div>
 </div>
@@ -104,44 +79,86 @@
     <section id="inicio" class="hero">
         <span class="text-blue-500 font-bold uppercase text-xs tracking-widest mb-4">Técnica em desenvolvimento de sistemas e Análise de dados</span>
         <h1>STEFANY<br>SANTOS</h1>
-        <p class="text-zinc-500 max-w-lg mt-6 text-lg">Stefany Santos, 18 anos, Estudante de ADS. Atualmente, tenho grande interesse em ingressar na área. Apaixonada por tecnologia e análise de dados, buscando transformar informações em soluções e experiências digitais que geram impacto.</p>
+        <p class="text-zinc-500 max-w-lg mt-8 text-lg leading-relaxed">
+            Stefany Santos, 18 anos, Estudante de ADS. Atualmente, tenho grande interesse em ingressar na área. 
+            Apaixonada por tecnologia e análise de dados, buscando transformar informações em soluções 
+            e experiências digitais que geram impacto.
+        </p>
     </section>
 
-    <section id="projetos" class="py-20 px-6">
+    <section id="projetos" class="py-32 px-6">
         <div class="max-w-6xl mx-auto">
-            <h3 class="text-3xl font-black mb-16 italic text-center uppercase tracking-widest text-blue-500">Meus Projetos</h3>
+            <h3 class="text-4xl font-black mb-20 italic text-center uppercase tracking-[0.2em] text-blue-500">Meus Projetos</h3>
 
-            <div class="grid grid-cols-1 gap-8">
-                <div class="glass p-6 rounded-[2rem] flex flex-col md:flex-row gap-8 items-center group">
-                    <div class="w-full md:w-72 h-48 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/20">
-                        <img src="LINK_DA_IMAGEM" alt="Zoe Store" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+            <div class="grid grid-cols-1 gap-10">
+                <div class="glass p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center group">
+                    <div class="w-full md:w-80 h-52 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/10">
+                        <img src="IMAGEM_ZOE" alt="Zoe Store" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                     </div>
                     <div class="flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="text-2xl font-bold group-hover:text-blue-400 transition">Zoe Store</h4>
-                            <i class="fas fa-bicycle text-blue-500 text-xl"></i>
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-3xl font-bold group-hover:text-blue-400 transition">Zoe Store</h4>
+                            <i class="fas fa-bicycle text-blue-500 text-2xl"></i>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">E-commerce especializado em mobilidade elétrica. Interface responsiva e fluxo otimizado.</p>
-                        <div class="flex gap-2 text-[10px] font-bold text-blue-300">
-                            <span class="bg-blue-900/20 px-2 py-1 rounded border border-blue-500/20 uppercase">HTML/CSS</span>
-                            <span class="bg-blue-900/20 px-2 py-1 rounded border border-blue-500/20 uppercase">JS</span>
+                        <p class="text-zinc-400 text-base mb-6 leading-relaxed">E-commerce especializado em mobilidade elétrica (bikes e patinetes). Interface responsiva e fluxo de navegação otimizado.</p>
+                        <div class="flex gap-3 text-[10px] font-bold">
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">HTML/CSS</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">JS</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">UI/UX</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="glass p-6 rounded-[2rem] flex flex-col md:flex-row gap-8 items-center group">
-                    <div class="w-full md:w-72 h-48 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/20">
-                        <img src="LINK_DA_IMAGEM" alt="DrawSystem" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                <div class="glass p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center group">
+                    <div class="w-full md:w-80 h-52 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/10">
+                        <img src="IMAGEM_ESTOQUE" alt="Stock Manager" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                     </div>
                     <div class="flex-1">
-                        <div class="flex justify-between items-start mb-2">
-                            <h4 class="text-2xl font-bold group-hover:text-blue-400 transition">DrawSystem</h4>
-                            <i class="fas fa-ticket-alt text-blue-500 text-xl"></i>
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-3xl font-bold group-hover:text-blue-400 transition">Stock Manager</h4>
+                            <i class="fas fa-boxes-stacked text-blue-500 text-2xl"></i>
                         </div>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed">Aplicação web para realização de sorteios aleatórios com interface limpa.</p>
-                        <div class="flex gap-2 text-[10px] font-bold text-blue-300">
-                            <span class="bg-blue-900/20 px-2 py-1 rounded border border-blue-500/20 uppercase">JavaScript</span>
-                            <span class="bg-blue-900/20 px-2 py-1 rounded border border-blue-500/20 uppercase">Lógica</span>
+                        <p class="text-zinc-400 text-base mb-6 leading-relaxed">Sistema robusto para controle de inventário, com funcionalidades de entrada, saída e relatórios de disponibilidade.</p>
+                        <div class="flex gap-3 text-[10px] font-bold">
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">JAVA</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">SQL SERVER</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">POO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center group">
+                    <div class="w-full md:w-80 h-52 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/10">
+                        <img src="IMAGEM_SORTEIO" alt="DrawSystem" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-3xl font-bold group-hover:text-blue-400 transition">DrawSystem</h4>
+                            <i class="fas fa-ticket-alt text-blue-500 text-2xl"></i>
+                        </div>
+                        <p class="text-zinc-400 text-base mb-6 leading-relaxed">Aplicação web para realização de sorteios aleatórios, focada em transparência e interface limpa.</p>
+                        <div class="flex gap-3 text-[10px] font-bold">
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">JAVASCRIPT</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">LÓGICA</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">RESPONSIVO</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center group">
+                    <div class="w-full md:w-80 h-52 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/10">
+                        <img src="IMAGEM_AGENDA" alt="Agenda" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    </div>
+                    <div class="flex-1">
+                        <div class="flex justify-between items-start mb-4">
+                            <h4 class="text-3xl font-bold group-hover:text-blue-400 transition">Agenda de Eventos</h4>
+                            <i class="fas fa-calendar-check text-blue-500 text-2xl"></i>
+                        </div>
+                        <p class="text-zinc-400 text-base mb-6 leading-relaxed">Backend desenvolvido para gerenciar calendários, permitindo CRUD de eventos com validações complexas.</p>
+                        <div class="flex gap-3 text-[10px] font-bold">
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">SPRING BOOT</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">POSTGRES</span>
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">DOCKER</span>
                         </div>
                     </div>
                 </div>
@@ -149,62 +166,83 @@
         </div>
     </section>
 
-    <section id="tech-stack" class="py-24 px-10 bg-[#0c0c0c] border-y border-white/5">
+    <section id="tech-stack" class="py-32 px-10 bg-[#0c0c0c] border-y border-white/5">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row items-center justify-between mb-16 gap-6">
-                <h2 class="text-4xl font-black uppercase tracking-tighter m-0">Technical Stack</h2>
-                <p class="text-zinc-500 text-sm max-w-sm text-center md:text-right font-light uppercase tracking-widest">
-                    Linguagens, Frameworks e Bancos de Dados
-                </p>
+            <div class="flex flex-col md:flex-row items-center justify-between mb-20 gap-6 text-center md:text-left">
+                <h2 class="text-5xl font-black uppercase tracking-tighter">Technical Stack</h2>
+                <p class="text-zinc-500 text-sm max-w-xs font-light uppercase tracking-widest">Linguagens, Frameworks e Bancos de Dados</p>
             </div>
             
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                <div class="group p-8 bg-zinc-900/30 border border-white/5 rounded-xl flex flex-col items-center gap-4 hover:border-blue-500 transition-all duration-500">
-                    <i class="fab fa-js text-4xl text-zinc-600 group-hover:text-yellow-400 transition-all"></i>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fab fa-js text-4xl text-zinc-600 group-hover:text-yellow-400 group-hover:rotate-[360deg] transition-all duration-700"></i>
                     <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">JavaScript</span>
                 </div>
-                <div class="group p-8 bg-zinc-900/30 border border-white/5 rounded-xl flex flex-col items-center gap-4 hover:border-blue-500 transition-all duration-500">
-                    <i class="fab fa-node-js text-4xl text-zinc-600 group-hover:text-green-500 transition-all"></i>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fas fa-code text-4xl text-zinc-600 group-hover:text-blue-400 group-hover:rotate-[360deg] transition-all duration-700"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">TypeScript</span>
+                </div>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fab fa-node-js text-4xl text-zinc-600 group-hover:text-green-500 group-hover:rotate-[360deg] transition-all duration-700"></i>
                     <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Node.js</span>
                 </div>
-                <div class="group p-8 bg-zinc-900/30 border border-white/5 rounded-xl flex flex-col items-center gap-4 hover:border-blue-500 transition-all duration-500">
-                    <i class="fab fa-react text-4xl text-zinc-600 group-hover:text-cyan-400 transition-all"></i>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fab fa-react text-4xl text-zinc-600 group-hover:text-cyan-400 group-hover:rotate-[360deg] transition-all duration-700"></i>
                     <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">React</span>
                 </div>
-                <div class="group p-8 bg-zinc-900/30 border border-white/5 rounded-xl flex flex-col items-center gap-4 hover:border-blue-500 transition-all duration-500">
-                    <i class="fab fa-java text-4xl text-zinc-600 group-hover:text-red-500 transition-all"></i>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fas fa-cube text-4xl text-zinc-600 group-hover:text-white group-hover:rotate-[360deg] transition-all duration-700"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Three.js</span>
+                </div>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fab fa-java text-4xl text-zinc-600 group-hover:text-red-500 group-hover:rotate-[360deg] transition-all duration-700"></i>
                     <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Java</span>
                 </div>
-                <div class="group p-8 bg-zinc-900/30 border border-white/5 rounded-xl flex flex-col items-center gap-4 hover:border-blue-500 transition-all duration-500">
-                    <i class="fas fa-database text-4xl text-zinc-600 group-hover:text-blue-400 transition-all"></i>
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">SQL Server</span>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fas fa-hashtag text-4xl text-zinc-600 group-hover:text-purple-400 group-hover:rotate-[360deg] transition-all duration-700"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">C# / .NET</span>
                 </div>
-                <div class="group p-8 bg-zinc-900/30 border border-white/5 rounded-xl flex flex-col items-center gap-4 hover:border-blue-500 transition-all duration-500">
-                    <i class="fab fa-git-alt text-4xl text-zinc-600 group-hover:text-orange-500 transition-all"></i>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fab fa-php text-4xl text-zinc-600 group-hover:text-indigo-400 group-hover:rotate-[360deg] transition-all duration-700"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">PHP</span>
+                </div>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fas fa-database text-4xl text-zinc-600 group-hover:text-blue-400 group-hover:rotate-[360deg] transition-all duration-700"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Postgres</span>
+                </div>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fas fa-server text-4xl text-zinc-600 group-hover:text-orange-400 group-hover:rotate-[360deg] transition-all duration-700"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">MySQL</span>
+                </div>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fas fa-leaf text-4xl text-zinc-600 group-hover:text-green-600 group-hover:rotate-[360deg] transition-all duration-700"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">MongoDB</span>
+                </div>
+                <div class="tech-card p-8 rounded-xl flex flex-col items-center gap-4 group">
+                    <i class="fab fa-git-alt text-4xl text-zinc-600 group-hover:text-orange-600 group-hover:rotate-[360deg] transition-all duration-700"></i>
                     <span class="text-[10px] font-bold uppercase tracking-widest text-zinc-500">Git</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="contato" class="py-32 px-6 md:px-20 bg-[#0a0a0a]">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
+    <section id="contato" class="py-32 px-6 md:px-20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-20">
             <div class="space-y-10">
-                <h2 class="text-6xl md:text-8xl font-black uppercase leading-[0.9] tracking-tighter">
-                    ENTRAR EM <br> <span class="text-blue-500">CONTATO</span>
-                </h2>
+                <h2 class="text-6xl md:text-8xl font-black uppercase leading-[0.9] tracking-tighter">ENTRAR EM <br><span class="text-blue-500">CONTATO</span></h2>
+                <p class="text-zinc-500 uppercase tracking-widest text-sm">Interessado(a) no meu trabalho? Entre em contato ou conecte-se abaixo.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-12 h-12 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-12 h-12 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-github"></i></a>
-                    <a href="#" class="w-12 h-12 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fas fa-envelope"></i></a>
+                    <a href="#" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-github"></i></a>
+                    <a href="#" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
 
             <form action="#" class="space-y-6">
-                <input type="text" placeholder="Seu Nome" class="w-full p-5 bg-zinc-900/50 border border-white/10 rounded-xl outline-none focus:border-blue-500 text-white">
-                <input type="email" placeholder="E-mail" class="w-full p-5 bg-zinc-900/50 border border-white/10 rounded-xl outline-none focus:border-blue-500 text-white">
-                <textarea placeholder="Sua mensagem" rows="5" class="w-full p-5 bg-zinc-900/50 border border-white/10 rounded-xl outline-none focus:border-blue-500 text-white resize-none"></textarea>
-                <button type="submit" class="bg-blue-500 text-white px-10 py-4 rounded-full font-black uppercase tracking-widest hover:bg-blue-600 transition-all">Enviar Mensagem</button>
+                <input type="text" placeholder="Seu Nome" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white">
+                <input type="email" placeholder="Seu e-mail" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white">
+                <textarea placeholder="Como posso te ajudar?" rows="5" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white resize-none"></textarea>
+                <button type="submit" class="w-full md:w-auto bg-blue-500 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-blue-600 transition-all">Enviar Mensagem</button>
             </form>
         </div>
     </section>
