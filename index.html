@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefany Santos | Tec em Desin. </title>
+    <title>Stefany Santos | Tec em Design</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,24 +13,63 @@
         :root { --bg-dark: #0a0a0a; --accent: #3b82f6; }
         body { background: var(--bg-dark); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* MENU OVERLAY */
+        /* MENU OVERLAY COM IMAGENS DE FUNDO */
         .menu-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(10, 10, 10, 0.98);
             z-index: 2000;
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; pointer-events: none;
+            display: flex; 
+            align-items: center; 
+            justify-content: center;
+            opacity: 0; 
+            pointer-events: none;
             transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
         }
         .menu-overlay.active { opacity: 1; pointer-events: auto; }
+        
+        .menu-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+        }
+        
         .menu-content a {
             font-size: clamp(2.5rem, 8vw, 5rem);
-            font-weight: 900; text-transform: uppercase; display: block;
-            color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.3);
+            font-weight: 900; 
+            text-transform: uppercase; 
+            display: block;
+            color: transparent; 
+            -webkit-text-stroke: 1px rgba(255,255,255,0.3);
             transition: 0.4s;
+            cursor: pointer;
+            margin: 0.5rem 0;
         }
-        .menu-content a:hover { color: white; -webkit-text-stroke: 1px white; transform: skewX(-10deg); }
+        
+        .menu-content a:hover { 
+            color: white; 
+            -webkit-text-stroke: 1px white; 
+            transform: skewX(-10deg); 
+        }
+
+        /* Imagem de fundo do menu no hover */
+        .menu-bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .menu-bg-image.active {
+            opacity: 0.25;
+        }
 
         /* SEÇÕES */
         .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; }
@@ -50,6 +89,17 @@
             transition: all 0.5s ease;
         }
         .tech-card:hover { border-color: var(--accent); }
+        
+        .project-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        
+        .group:hover .project-img {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -66,12 +116,14 @@
     </button>
 </header>
 
+<!-- Menu Overlay -->
 <div id="menuOverlay" class="menu-overlay">
-    <div class="menu-content text-center">
-        <a href="#inicio" onclick="toggleMenu()">Início</a>
-        <a href="#projetos" onclick="toggleMenu()">Projetos</a>
-        <a href="#tech-stack" onclick="toggleMenu()">Stack</a>
-        <a href="#contato" onclick="toggleMenu()">Contato</a>
+    <div id="menuBgImage" class="menu-bg-image"></div>
+    <div class="menu-content">
+        <a href="#inicio" data-bg-image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920" data-menu-item="inicio">Início</a>
+        <a href="#projetos" data-bg-image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920" data-menu-item="projetos">Projetos</a>
+        <a href="#tech-stack" data-bg-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920" data-menu-item="stack">Stack</a>
+        <a href="#contato" data-bg-image="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920" data-menu-item="contato">Contato</a>
     </div>
 </div>
 
@@ -89,42 +141,9 @@
     <section id="projetos" class="py-32 px-6">
         <div class="max-w-6xl mx-auto">
             <h3 class="text-4xl font-black mb-20 italic text-center uppercase tracking-[0.2em] text-blue-500">Meus Projetos</h3>
-
-                <div class="glass p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center group">
-                    <div class="w-full md:w-80 h-52 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/10">
-                        <img src="ChatGPTImage.png" alt="Stock Manager" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="text-3xl font-bold group-hover:text-blue-400 transition">Gerenciamento de estoque</h4>
-                            <i class="fas fa-boxes-stacked text-blue-500 text-2xl"></i>
-                        </div>
-                        <p class="text-zinc-400 text-base mb-6 leading-relaxed">Sistema robusto para controle de inventário, com funcionalidades de entrada, saída e relatórios de disponibilidade.</p>
-                        <div class="flex gap-3 text-[10px] font-bold">
-                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">JAVA</span>
-                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">SQL SERVER</span>
-                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">POO</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center group">
-                    <div class="w-full md:w-80 h-52 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/10">
-                        <img src="SorteioOnlineEmAndamento.png" alt="DrawSystem" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
-                    </div>
-                    <div class="flex-1">
-                        <div class="flex justify-between items-start mb-4">
-                            <h4 class="text-3xl font-bold group-hover:text-blue-400 transition"> Up Sorteios</h4>
-                            <i class="fas fa-ticket-alt text-blue-500 text-2xl"></i>
-                        </div>
-                        <p class="text-zinc-400 text-base mb-6 leading-relaxed">Aplicação web para realização de sorteios aleatórios, focada em transparência e interface limpa.</p>
-                        <div class="flex gap-3 text-[10px] font-bold">
-                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">JAVASCRIPT</span>
-                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">LÓGICA</span>
-                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">RESPONSIVO</span>
-                        </div>
-                    </div>
-                </div>
+            
+            <div id="projects-container" class="space-y-12">
+                <!-- Projetos serão inseridos via JavaScript -->
             </div>
         </div>
     </section>
@@ -201,10 +220,10 @@
                 </div>
             </div>
 
-            <form action="#" class="space-y-6">
-                <input type="text" placeholder="Seu Nome" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white">
-                <input type="email" placeholder="Seu e-mail" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white">
-                <textarea placeholder="Como posso te ajudar?" rows="5" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white resize-none"></textarea>
+            <form id="contactForm" class="space-y-6">
+                <input type="text" id="nome" placeholder="Seu Nome" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white">
+                <input type="email" id="email" placeholder="Seu e-mail" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white">
+                <textarea id="mensagem" placeholder="Como posso te ajudar?" rows="5" class="w-full p-6 bg-zinc-900/40 border border-white/10 rounded-2xl outline-none focus:border-blue-500 transition-all text-white resize-none"></textarea>
                 <button type="submit" class="w-full md:w-auto bg-blue-500 text-white px-12 py-5 rounded-full font-black uppercase tracking-widest hover:bg-blue-600 transition-all">Enviar Mensagem</button>
             </form>
         </div>
@@ -212,14 +231,212 @@
 </main>
 
 <script>
-    const overlay = document.getElementById('menuOverlay');
-    const menuText = document.getElementById('menu-text');
+    // ========== DADOS DOS PROJETOS (COLOQUE SUAS FOTOS AQUI) ==========
+    const projects = [
+        {
+            id: 1,
+            title: "Gerenciamento de estoque",
+            description: "Sistema robusto para controle de inventário, com funcionalidades de entrada, saída e relatórios de disponibilidade.",
+            // 🔁 SUBSTITUA PELO CAMINHO DA SUA FOTO
+            imageUrl: "https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?w=800",
+            icon: "fa-boxes-stacked",
+            technologies: ["JAVA", "SQL SERVER", "POO"]
+        },
+        {
+            id: 2,
+            title: "Up Sorteios",
+            description: "Aplicação web para realização de sorteios aleatórios, focada em transparência e interface limpa.",
+            // 🔁 SUBSTITUA PELO CAMINHO DA SUA FOTO
+            imageUrl: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=800",
+            icon: "fa-ticket-alt",
+            technologies: ["JAVASCRIPT", "LÓGICA", "RESPONSIVO"]
+        },
+        {
+            id: 3,
+            title: "Análise de Dados - Vendas",
+            description: "Dashboard interativo para análise de métricas de vendas usando Python e Pandas, com visualizações dinâmicas.",
+            // 🔁 SUBSTITUA PELO CAMINHO DA SUA FOTO
+            imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800",
+            icon: "fa-chart-line",
+            technologies: ["PYTHON", "PANDAS", "PLOTLY"]
+        },
+        {
+            id: 4,
+            title: "API REST - Sistema de Tarefas",
+            description: "API completa para gerenciamento de tarefas com autenticação JWT, documentação Swagger e testes automatizados.",
+            // 🔁 SUBSTITUA PELO CAMINHO DA SUA FOTO
+            imageUrl: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800",
+            icon: "fa-tasks",
+            technologies: ["NODE.JS", "TYPESCRIPT", "POSTGRESQL"]
+        }
+    ];
 
+    // ========== FUNÇÃO PARA RENDERIZAR PROJETOS ==========
+    function renderProjects() {
+        const container = document.getElementById('projects-container');
+        if (!container) return;
+
+        container.innerHTML = projects.map(project => `
+            <div class="glass p-8 rounded-[2.5rem] flex flex-col md:flex-row gap-10 items-center group">
+                <div class="w-full md:w-80 h-52 flex-shrink-0 overflow-hidden rounded-2xl border border-blue-500/10">
+                    <img src="${project.imageUrl}" alt="${project.title}" 
+                         class="project-img"
+                         onerror="this.src='https://via.placeholder.com/800x600?text=Minha+Foto'">
+                </div>
+                <div class="flex-1">
+                    <div class="flex justify-between items-start mb-4">
+                        <h4 class="text-3xl font-bold group-hover:text-blue-400 transition">${project.title}</h4>
+                        <i class="fas ${project.icon} text-blue-500 text-2xl"></i>
+                    </div>
+                    <p class="text-zinc-400 text-base mb-6 leading-relaxed">${project.description}</p>
+                    <div class="flex gap-3 text-[10px] font-bold flex-wrap">
+                        ${project.technologies.map(tech => `
+                            <span class="bg-blue-900/20 text-blue-300 px-3 py-1 rounded border border-blue-500/20 uppercase">${tech}</span>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ========== FUNÇÃO PARA RENDERIZAR O MENU COM IMAGENS ==========
+    function setupMenuHoverImages() {
+        const menuLinks = document.querySelectorAll('.menu-content a');
+        const menuBgImage = document.getElementById('menuBgImage');
+        
+        if (!menuBgImage) return;
+
+        menuLinks.forEach(link => {
+            // Evento de mouse enter para mostrar a imagem
+            link.addEventListener('mouseenter', function() {
+                const bgImage = this.getAttribute('data-bg-image');
+                if (bgImage && menuBgImage) {
+                    menuBgImage.style.backgroundImage = `url(${bgImage})`;
+                    menuBgImage.classList.add('active');
+                }
+            });
+
+            // Evento de mouse leave para esconder a imagem
+            link.addEventListener('mouseleave', function() {
+                if (menuBgImage) {
+                    menuBgImage.classList.remove('active');
+                }
+            });
+
+            // Evento de clique para fechar o menu e rolar suavemente
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                if (href) {
+                    const targetElement = document.querySelector(href);
+                    if (targetElement) {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+                toggleMenu();
+            });
+        });
+    }
+
+    // ========== CONTROLE DO MENU ==========
     function toggleMenu() {
-        overlay.classList.toggle('active');
-        const isOpen = overlay.classList.contains('active');
-        menuText.innerText = isOpen ? "Fechar" : "Menu";
-        document.body.style.overflow = isOpen ? "hidden" : "auto";
+        const overlay = document.getElementById('menuOverlay');
+        const menuText = document.getElementById('menu-text');
+        const menuBgImage = document.getElementById('menuBgImage');
+        
+        if (!overlay || !menuText) return;
+        
+        if (overlay.classList.contains('active')) {
+            overlay.classList.remove('active');
+            menuText.innerText = "Menu";
+            document.body.style.overflow = "auto";
+            if (menuBgImage) {
+                menuBgImage.classList.remove('active');
+            }
+        } else {
+            overlay.classList.add('active');
+            menuText.innerText = "Fechar";
+            document.body.style.overflow = "hidden";
+            // Reconfigurar eventos do menu quando ele abrir
+            setTimeout(() => setupMenuHoverImages(), 100);
+        }
+    }
+
+    // ========== FORMULÁRIO DE CONTATO ==========
+    function setupForm() {
+        const form = document.getElementById('contactForm');
+        if (!form) return;
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const nome = document.getElementById('nome').value;
+            const email = document.getElementById('email').value;
+            const mensagem = document.getElementById('mensagem').value;
+
+            // Validação simples
+            if (!nome || !email || !mensagem) {
+                alert('Por favor, preencha todos os campos!');
+                return;
+            }
+
+            // Validação de email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Por favor, insira um e-mail válido!');
+                return;
+            }
+
+            // Aqui você pode integrar com um serviço de envio de email
+            console.log('Dados do formulário:', { nome, email, mensagem });
+            alert('Mensagem enviada com sucesso! Em breve entrarei em contato.');
+            form.reset();
+        });
+    }
+
+    // ========== SCROLL SUAVE PARA LINKS EXTERNOS ==========
+    function setupSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    }
+
+    // ========== INICIALIZAÇÃO ==========
+    function init() {
+        renderProjects();
+        setupForm();
+        setupSmoothScroll();
+        setupMenuHoverImages();
+        
+        // Garantir que o menuBgImage seja limpo ao fechar
+        const overlay = document.getElementById('menuOverlay');
+        if (overlay) {
+            overlay.addEventListener('transitionend', function() {
+                const menuBgImage = document.getElementById('menuBgImage');
+                if (!overlay.classList.contains('active') && menuBgImage) {
+                    menuBgImage.classList.remove('active');
+                }
+            });
+        }
+    }
+
+    // Exportar toggleMenu para o escopo global
+    window.toggleMenu = toggleMenu;
+    
+    // Iniciar quando o DOM estiver carregado
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
     }
 </script>
 
