@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stefany Santos | Tec em Design</title>
+    <title>Stefany Santos | Tec em Desinvolvimento de sistemas e analise de dados</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -13,7 +13,7 @@
         :root { --bg-dark: #0a0a0a; --accent: #3b82f6; }
         body { background: var(--bg-dark); color: white; font-family: 'Inter', sans-serif; overflow-x: hidden; scroll-behavior: smooth; }
 
-        /* MENU OVERLAY COM IMAGENS DE FUNDO */
+        /* MENU OVERLAY COM IMAGENS DE FUNDO MENORES */
         .menu-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -52,23 +52,42 @@
             transform: skewX(-10deg); 
         }
 
-        /* Imagem de fundo do menu no hover */
+        /* Imagem de fundo do menu no hover - TAMANHO MENOR */
         .menu-bg-image {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 300px;
             background-size: cover;
             background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 20px;
             opacity: 0;
-            transition: opacity 0.4s ease;
+            transition: all 0.4s ease;
             pointer-events: none;
-            z-index: 1;
+            z-index: 2;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.5);
         }
         
         .menu-bg-image.active {
-            opacity: 0.25;
+            opacity: 0.9;
+            width: 350px;
+            height: 350px;
+        }
+
+        /* Responsivo para imagens do menu */
+        @media (max-width: 768px) {
+            .menu-bg-image {
+                width: 200px;
+                height: 200px;
+            }
+            .menu-bg-image.active {
+                width: 250px;
+                height: 250px;
+            }
         }
 
         /* SEÇÕES */
@@ -120,10 +139,10 @@
 <div id="menuOverlay" class="menu-overlay">
     <div id="menuBgImage" class="menu-bg-image"></div>
     <div class="menu-content">
-        <a href="#inicio" data-bg-image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1920" data-menu-item="inicio">Início</a>
-        <a href="#projetos" data-bg-image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920" data-menu-item="projetos">Projetos</a>
-        <a href="#tech-stack" data-bg-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1920" data-menu-item="stack">Stack</a>
-        <a href="#contato" data-bg-image="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=1920" data-menu-item="contato">Contato</a>
+        <a href="#inicio" data-bg-image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=400&fit=crop" data-menu-item="inicio">Início</a>
+        <a href="#projetos" data-bg-image="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=400&fit=crop" data-menu-item="projetos">Projetos</a>
+        <a href="#tech-stack" data-bg-image="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=400&fit=crop" data-menu-item="stack">Stack</a>
+        <a href="#contato" data-bg-image="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=400&h=400&fit=crop" data-menu-item="contato">Contato</a>
     </div>
 </div>
 
@@ -132,8 +151,8 @@
         <span class="text-blue-500 font-bold uppercase text-xs tracking-widest mb-4">Técnica em desenvolvimento de sistemas e Análise de dados</span>
         <h1>STEFANY<br>SANTOS</h1>
         <p class="text-zinc-500 max-w-lg mt-8 text-lg leading-relaxed">
-            Stefany Santos, 18 anos, Estudante de ADS. Atualmente, tenho grande interesse em ingressar na área. 
-            Apaixonada por tecnologia e análise de dados, buscando transformar informações em soluções 
+            Stefany Santos, 18 anos, técnica em desenvolver sistemas e analisar dados Atualmente, tenho grande interesse em ingressar na área. 
+            Apaixonada por tecnologia, buscando transformar informações em soluções 
             e experiências digitais que geram impacto.
         </p>
     </section>
@@ -214,9 +233,17 @@
                 <h2 class="text-6xl md:text-8xl font-black uppercase leading-[0.9] tracking-tighter">ENTRAR EM <br><span class="text-blue-500">CONTATO</span></h2>
                 <p class="text-zinc-500 uppercase tracking-widest text-sm">Interessado(a) no meu trabalho? Entre em contato ou conecte-se acessando os canais abaixo.</p>
                 <div class="flex gap-4">
-                    <a href="#" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-github"></i></a>
-                    <a href="#" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fas fa-envelope"></i></a>
+                    <!-- LINKEDIN - COLOQUE SEU LINK AQUI -->
+                    <a href="https:www.linkedin.com/in/stefany-francisco-dos-santos-9701ab335" target="_blank" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    
+                    <!-- GITHUB - COLOQUE SEU LINK AQUI -->
+                    <a href="https://github.com/leticia1stefany" target="_blank" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-github"></i></a>
+                    
+                    <!-- EMAIL - COLOQUE SEU EMAIL AQUI -->
+                    <a href="mailto:stefanyf.santos09@gmail.com" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fas fa-envelope"></i></a>
+                    
+                    <!-- INSTAGRAM (OPCIONAL) -->
+                    <a href="https://www.instagram.com/stefanyf_snts" target="_blank" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
 
