@@ -91,8 +91,56 @@
         }
 
         /* SEÇÕES */
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; padding: 0 10%; }
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: space-between; padding: 0 10%; gap: 50px; }
+        .hero-content { flex: 1; }
         .hero h1 { font-size: clamp(3rem, 10vw, 6rem); font-weight: 900; letter-spacing: -2px; line-height: 0.9; }
+        
+        /* Estilo para a foto de perfil */
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .profile-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 30px;
+            object-fit: cover;
+            box-shadow: 0 0 50px rgba(59, 130, 246, 0.3);
+            border: 2px solid rgba(59, 130, 246, 0.5);
+            transition: all 0.5s ease;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 80px rgba(59, 130, 246, 0.5);
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        /* Responsivo para a seção hero */
+        @media (max-width: 968px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 120px 5% 50px;
+                gap: 40px;
+            }
+            .hero-content {
+                text-align: center;
+            }
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
         
         .glass {
             background: rgba(255, 255, 255, 0.02);
@@ -148,13 +196,21 @@
 
 <main>
     <section id="inicio" class="hero">
-        <span class="text-blue-500 font-bold uppercase text-xs tracking-widest mb-4">Técnica em desenvolvimento de sistemas e Análise de dados</span>
-        <h1>STEFANY<br>SANTOS</h1>
-        <p class="text-zinc-500 max-w-lg mt-8 text-lg leading-relaxed">
-            Stefany Santos, 18 anos, técnica em desenvolver sistemas e analisar dados Atualmente, tenho grande interesse em ingressar na área. 
-            Apaixonada por tecnologia, buscando transformar informações em soluções 
-            e experiências digitais que geram impacto.
-        </p>
+        <div class="hero-content">
+            <span class="text-blue-500 font-bold uppercase text-xs tracking-widest mb-4">Técnica em desenvolvimento de sistemas e Análise de dados</span>
+            <h1>STEFANY<br>SANTOS</h1>
+            <p class="text-zinc-500 max-w-lg mt-8 text-lg leading-relaxed">
+                Stefany Santos, 18 anos, técnica em desenvolver sistemas e analisar dados. Atualmente, tenho grande interesse em ingressar na área. 
+                Apaixonada por tecnologia, buscando transformar informações em soluções 
+                e experiências digitais que geram impacto.
+            </p>
+        </div>
+        
+        <div class="hero-image">
+            <!-- 🔁 COLOQUE O LINK DA SUA FOTO AQUI -->
+            <img src="https://via.placeholder.com/400x500?text=SUA+FOTO+AQUI" alt="Stefany Santos" class="profile-image" id="profilePhoto"
+                 onerror="this.src='https://via.placeholder.com/400x500?text=+Adicione+sua+foto+clicando+no+botão+abaixo'">
+        </div>
     </section>
 
     <section id="projetos" class="py-32 px-6">
@@ -234,7 +290,7 @@
                 <p class="text-zinc-500 uppercase tracking-widest text-sm">Interessado(a) no meu trabalho? Entre em contato ou conecte-se acessando os canais abaixo.</p>
                 <div class="flex gap-4">
                     <!-- LINKEDIN - COLOQUE SEU LINK AQUI -->
-                    <a href="https:www.linkedin.com/in/stefany-francisco-dos-santos-9701ab335" target="_blank" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.linkedin.com/in/stefany-francisco-dos-santos-9701ab335" target="_blank" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-linkedin-in"></i></a>
                     
                     <!-- GITHUB - COLOQUE SEU LINK AQUI -->
                     <a href="https://github.com/leticia1stefany" target="_blank" class="w-14 h-14 bg-zinc-900 border border-white/5 rounded-full flex items-center justify-center text-zinc-400 hover:text-white hover:border-blue-500 transition-all"><i class="fab fa-github"></i></a>
