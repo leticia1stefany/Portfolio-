@@ -51,7 +51,6 @@ Minha jornada na tecnologia começou pela curiosidade em entender como grandes s
 
 [Gerenciamento de Estoques] 
 [➔ Ver Repositório](https://github.com/leticia1stefany/GerenciarEstoques)
----
 
 ## 📫 Vamos conversar?
 
