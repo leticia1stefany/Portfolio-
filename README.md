@@ -13,7 +13,7 @@
 
 <td align="right">
 
-  <img src="file:///C:/Users/stefanylety/Downloads/FotodaStefanyportfolio.jpg%20-%20Editado.png" alt="Foto de Stefany">
+  <img src="WhatsApp Image 2026-03-31 at 21.09.35.jpeg" alt="Foto de Stefany">
 
 </td>
 
