@@ -5,9 +5,9 @@
 
   <h1>Stefany F. Santos</h1>
 
-  <p><em>Desenvolvedora de Software | Estudante de ADS</em></p>
+  <p><em>Desenvolvedora de Software</em></p>
 
-  <p>17 anos • Criciúma, SC</p>
+  <p>18 anos • Criciúma, SC</p>
 
 </td>
 
