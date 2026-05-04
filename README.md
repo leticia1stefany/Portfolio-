@@ -13,7 +13,10 @@
 
 <td align="right">
 
-  <img src="WhatsApp Image 2026-03-31 at 21.09.35.jpeg" alt="Foto de Stefany">
+  <img src="WhatsApp Image 2026-03-31 at 21.09.35.jpeg" 
+       alt="Foto de Stefany" 
+       width="120" 
+       style="border-radius: 50%;">
 
 </td>
 
